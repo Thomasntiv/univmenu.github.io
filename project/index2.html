@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anemologita</title>
+    <style>
+        /* Your existing styles remain unchanged */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .button-container {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .quote-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.05s ease-out, transform 0.04s ease-out;
+        }
+
+        .quote-container.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <button onclick="window.location.href='message.html'">Message</button>
+        <button onclick="window.location.href='speak.html'">Speak</button>
+    </div>
+
+    <div class="quote-container">
+        <h2>10. "The only limit to our realization of tomorrow will be our doubts of today. #motivation #inspiration" - Franklin D. Roosevelt</h2>
+    </div>
+
+    <!-- ... Repeat the structure for the remaining quotes ... -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const quoteContainers = document.querySelectorAll('.quote-container');
+            const hashtagList = [];
+
+            function extractHashtags(quoteText) {
+                const regex = /#(\w+)/g;
+                const matches = quoteText.match(regex);
+                if (matches) {
+                    hashtagList.push(...matches);
+                }
+            }
+
+            function displayQuotes(index) {
+                if (index < quoteContainers.length) {
+                    const quoteContainer = quoteContainers[index];
+                    quoteContainer.classList.add('active');
+
+                    const quoteText = quoteContainer.querySelector('h2').innerText;
+                    extractHashtags(quoteText);
+
+                    setTimeout(function () {
+                        displayQuotes(index + 1);
+                    }, 500);
+                } else {
+                    console.log('Hashtag List:', hashtagList);
+                }
+            }
+
+            displayQuotes(0);
+        });
+    </script>
+</body>
+
+</html>
