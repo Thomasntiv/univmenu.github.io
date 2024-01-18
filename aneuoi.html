@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anemologita</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        li.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hashtag-list {
+            margin-top: 20px;
+        }
+
+        .hashtag-list a {
+            margin: 5px;
+            padding: 8px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button onclick="window.location.href='docsuoi.html'">Message</button>
+        <button onclick="window.location.href='speak.html'">Speak</button>
+    </div>
+
+    <h2>anemologita - Inspirational Quotes</h2>
+
+    <div class="hashtag-list">
+        <a href="#" onclick="filterByTag('ΑΡΤΑ')">ΑΡΤΑ</a>
+        <a href="#" onclick="filterByTag('ΙΩΑΝΝΙΝΑ')">ΙΩΑΝΝΙΝΑ</a>
+        <a href="#" onclick="filterByTag('[ΠΡΕΒΕΖΑ]')">ΠΡΕΒΕΖΑ</a>
+        <a href="#" onclick="filterByTag('Φιλοσοφική ')">Φιλοσοφική </a>
+        <a href="#" onclick="filterByTag('Θετικών Επιστημών')">Θετικών Επιστημών</a>
+        <a href="#" onclick="filterByTag('Επιστημών Υγείας')">Επιστημών Υγείας</a>
+        <a href="#" onclick="filterByTag(' Επιστημών Αγωγής')"> Επιστημών Αγωγής</a>
+        <a href="#" onclick="filterByTag('Σχολή Καλών Τεχνών')">Σχολή Καλών Τεχνών</a>
+        <a href="#" onclick="filterByTag('Πολυτεχνική Σχολή ')">Πολυτεχνική Σχολή </a>
+        <a href="#" onclick="filterByTag('Κοινωνικών Επιστημώνς')">Κοινωνικών Επιστημών</a>
+        <a href="#" onclick="filterByTag('Οικονομικών ')">Οικονομικών </a>
+        <a href="#" onclick="filterByTag('Μουσικών')">Μουσικών Σπουδών</a>
+        <a href="#" onclick="filterByTag('Πληροφορικής')">Πληροφορικής και Τηλεπικοινωνιών </a>
+        <a href="#" onclick="filterByTag('Άντρας')">Άντρας</a>
+        <a href="#" onclick="filterByTag('Γυναίκα')">Γυναίκα</a>
+    </div>
+
+    <ul>
+        <li class="ΑΡΤΑ Πληροφορικής 1ο Γυναίκα "> gkjk ntk djgiehnghegih nkljpoop #ΑΡΤΑ #Πληροφορικής και Τηλεπικοινωνιών #1ο #Γυναίκα </li>
+        <li class="Μουσικών Σπουδών">2. "In the end, we will remember not the words of our enemies, but the silence of our friends." - Martin Luther King Jr. #Friendship #Remember #Silence</li>
+        <li class="Inspiration Happiness">3. "The purpose of our lives is to be happy." - Dalai Lama #Happiness #Purpose #Life</li>
+        <li class="Happiness Dreams">4. "The future belongs to those who believe in the beauty of their dreams." - Eleanor Roosevelt #Dreams #Future #Believe</li>
+        <li class="Wisdom Success Love Friendship">5. "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful." - Albert Schweitzer #Success #Happiness #Love</li>
+        <!-- Add more quotes with multiple classes as needed -->
+    </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const quoteItems = document.querySelectorAll('li');
+
+            function displayQuotes(index) {
+                if (index < quoteItems.length) {
+                    quoteItems[index].classList.add('active');
+                    setTimeout(function () {
+                        displayQuotes(index + 1);
+                    }, 500);
+                }
+            }
+
+            displayQuotes(0);
+        });
+
+        function filterByTag(tag) {
+            const allQuotes = document.querySelectorAll('li');
+            allQuotes.forEach((quote) => {
+                quote.style.display = 'none';
+            });
+
+            const filteredQuotes = document.querySelectorAll('.' + tag);
+            filteredQuotes.forEach((quote) => {
+                quote.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+
+</html>
