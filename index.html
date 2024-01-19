@@ -61,6 +61,12 @@
             font-weight: bold;
         }
 
+        #copy-feedback {
+            display: none;
+            color: green;
+            margin-top: 0.5em;
+        }
+
         button {
             margin-top: 0.5em;
             padding: 0.5em;
@@ -91,6 +97,7 @@
         <div id="email-container">
             <p>Email: <span id="email">zozo@gmail.com</span></p>
             <button onclick="copyEmail()">Copy Email</button>
+            <div id="copy-feedback">Email copied <span>&#10004;</span></div>
         </div>
     </main>
 
@@ -102,12 +109,21 @@
             navigator.clipboard.writeText(emailText)
                 .then(() => {
                     // Successful copy
-                    alert('Email copied to clipboard: ' + emailText);
+                    showCopyFeedback();
                 })
                 .catch(err => {
                     // Handle errors
                     console.error('Unable to copy email to clipboard', err);
                 });
+        }
+
+        function showCopyFeedback() {
+            const feedbackDiv = document.getElementById('copy-feedback');
+            feedbackDiv.style.display = 'block';
+
+            setTimeout(() => {
+                feedbackDiv.style.display = 'none';
+            }, 2000); // Hide feedback after 2 seconds
         }
     </script>
 </body>
