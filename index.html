@@ -48,13 +48,6 @@
             transform: scale(1.1);
         }
 
-        /* Mobile-friendly styles */
-        @media screen and (max-width: 600px) {
-            #photo-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* Styles for the email container */
         #email-container {
             margin-top: 1em;
@@ -100,5 +93,22 @@
             <button onclick="copyEmail()">Copy Email</button>
         </div>
     </main>
+
+    <script>
+        function copyEmail() {
+            const emailSpan = document.getElementById('email');
+            const emailText = emailSpan.innerText;
+
+            navigator.clipboard.writeText(emailText)
+                .then(() => {
+                    // Successful copy
+                    alert('Email copied to clipboard: ' + emailText);
+                })
+                .catch(err => {
+                    // Handle errors
+                    console.error('Unable to copy email to clipboard', err);
+                });
+        }
+    </script>
 </body>
 </html>
