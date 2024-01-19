@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4d4d4d;
+            padding: 20px;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .day-tile {
+            width: 100%; /* Adjusted for mobile */
+            margin: 10px;
+            padding: 15px;
+            background-color: #bfb8ca;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: tileMovement 2s infinite alternate;
+        }
+
+        .day-tile h2 {
+            color: #352513;
+            margin-bottom: 10px;
+        }
+
+        .plate-tile {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #e7dede;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .inner-tiles {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-tile {
+            margin-bottom: 10px;
+        }
+
+        .inner-tile-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .plate-tile:hover {
+            background-color: #993636;
+        }
+
+        .number-tile {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(54, 68, 151, 0.1);
+            margin: 20px;
+        }
+
+        .number-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 5px 8px; /* Adjusted for smaller size */
+            border-radius: 5px;
+            background-color: #8a3636;
+            transition: background-color 0.3s ease-in-out;
+            margin: 5px;
+        }
+
+        .number-link:hover {
+            background-color: #b15151;
+        }
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4d4d4d;
+            padding: 20px;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .day-tile {
+            width: 100%; /* Adjusted for mobile */
+            margin: 10px;
+            padding: 15px;
+            background-color: #bfb8ca;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: tileMovement 2s infinite alternate;
+        }
+
+        .day-tile h2 {
+            color: #352513;
+            margin-bottom: 10px;
+        }
+
+        .plate-tile {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #e7dede;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .inner-tiles {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-tile {
+            margin-bottom: 10px;
+        }
+
+        .inner-tile-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .plate-tile:hover {
+            background-color: #993636;
+        }
+
+        .number-tile {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(54, 68, 151, 0.1);
+            margin: 20px;
+        }
+
+        .number-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 5px 8px; /* Adjusted for smaller size */
+            border-radius: 5px;
+            background-color: #8a3636;
+            transition: background-color 0.3s ease-in-out;
+            margin: 5px;
+        }
+
+        .number-link:hover {
+            background-color: #b15151;
+        }
+
+        .top-bar {
+            background-color: #e6c5c5;
+            padding: 1px;
+            text-align: center;
+        }
+
+        .top-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .top-link {
+            text-decoration: none;
+            color: #2d472e;
+            font-weight: bold;
+            padding: 2px;
+            border-radius: 2px;
+            transition: background-color 0.3s ease-in-out;
+            margin: 8px;
+            width: 13%; /* Adjusted for mobile */
+            box-sizing: border-box;
+        }
+
+        .top-link:hover {
+            background-color: #d6ec57;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 20px;
+            background-color: #183f2f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #bd2f2f;
+        }
+
+        .restaurant-tile {
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .restaurant-tile .tile-content {
+            background-color: #3498db; /* Blue tile color */
+            color: #fff; /* Text color */
+            border-radius: 10px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="top-section">
+            <a class="top-link" href="#day1">01/01</a>
+            <a class="top-link" href="#day2">02/01</a>
+            <a class="top-link" href="#day3">03/01</a>
+            <!-- Add more top links as needed -->
+        </div>
+    </div>
+
+    <!-- Restaurant Tile -->
+    <div class="restaurant-tile">
+        <h1>Restaurant Name</h1>
+        <div class="tile-content">
+            <p>Welcome to our menu! Explore the delicious dishes we offer.</p>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="scrollToTop()">ημερολογιο</button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+
+</html>
+
+
