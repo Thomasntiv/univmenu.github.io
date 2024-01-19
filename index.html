@@ -47,6 +47,40 @@
         #photo-gallery img:hover {
             transform: scale(1.1);
         }
+
+        /* Mobile-friendly styles */
+        @media screen and (max-width: 600px) {
+            #photo-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Styles for the email container */
+        #email-container {
+            margin-top: 1em;
+            padding: 1em;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #email {
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 0.5em;
+            padding: 0.5em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +92,12 @@
             <a href="indexuoi.html"><img src="uoiph.jpg" alt="Photo 1"></a>
             <a href="uni2.html"><img src="uopph.jpg" alt="Photo 2"></a>
             <a href="uni3.html"><img src="uotph.jpg" alt="Photo 3"></a>
+        </div>
+
+        <!-- Email container for mobile -->
+        <div id="email-container">
+            <p>Email: <span id="email">zozo@gmail.com</span></p>
+            <button onclick="copyEmail()">Copy Email</button>
         </div>
     </main>
 </body>
